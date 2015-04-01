@@ -1,0 +1,38 @@
+<div class="container">
+
+<!-- <div class="alert-shadow alert alert-dismissible alert-danger"  ng-hide="!message" ng-show="message" ng-click="message=''" ng-blur="message=''" ><button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="message=''">&times;</button><strong>{{message}} </strong></div>', -->
+		
+	<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-lg-offset-2 col-md-offset-2 ">
+		<div class="jumbotron border-left" >
+		<div class="container">
+			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" stylue="color :#18BC9C;">
+				<br><i class="fa fa-cubes fa-9x"></i>
+			</div>
+
+
+			<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7" style="border-left:dashed 1px rgba(0,0,0,.2);">
+
+			<form  role="form" name="loginForm" ng-submit="authentication()">
+				<div class="form-group " ng-class="{ 'has-error' : loginForm.login.$invalid && loginForm.login.$touched}">
+					<label for="login">Login
+						<span  ng-messages="loginForm.login.$error" ng-messages-include="views/errors.html"></span>
+					</label>
+
+					<input type="text" name="login" ng-model="login.username" class="form-control"  id="login" placeholder="Nom d'utilisateur" ng-required="true" >
+				</div>
+				<div class="form-group" ng-class="{ 'has-error' : loginForm.pass.$invalid && loginForm.pass.$touched}">
+					<label for="pass">Mot de passe
+						<span  ng-messages="loginForm.pass.$error" ng-messages-include="views/errors.html"></span>
+					</label>
+					<input type="text" class="form-control" ng-model="login.pass" id="pass" placeholder="Mot de passe" required name="pass" >
+				</div>
+				<button type="submit" style="float:right;clear:both;" ng-class="{'btn btn-danger' :loginForm.$invalid,'btn btn-success' :loginForm.$valid}"  ng-disabled="loginForm.$invalid">Connexion</button>
+			</form>
+			</div>
+			
+			
+		</div>
+	</div>
+	</div>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="jumbotron">
+	<div class="container">
+		<h1>{{message}}</h1>
+		<p>Contents ...</p>
+		<p>
+			<a class="btn btn-primary btn-lg">Learn more</a>
+		</p>
+	</div>
+
+</div>
+<div class="container">
+	<input type="text" ng-model="etudiant"  class="form-control"  required="required" >
+		<div ng-bind="etudiant"></div>
+	<ul>
+
+		<li  dir-paginate="etudiant in etudiants2 | itemsPerPage: 12 | filter:etudiant ">
+			{{ etudiant | lowercase }} 
+		</li>
+		<dir-pagination-controls template-url="script/directives/pagination/dirPagination.tpl.html"></dir-pagination-controls>
+	</ul>
+</div>

@@ -1,0 +1,19 @@
+<div style="text-align: center; margin-bottom :19px;">
+
+	<ul class="pagination " style="margin:auto;text-align: center;" >
+		<li  ng-repeat="item in items">
+			<a href="#{{ item.path }} " ng-class="{'menu-p-item-active' :  item.active }" ><i class="fa {{ item.icon }} {{ item.size }} " ></i><br>{{ item.name }} </a>
+		</li>
+	</ul>
+ </div>
+
+  <div style="height:36px;background-color :rgba(0,0,0,.1);">
+    <div class="container" >
+      <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+      </ul>
+    </div>
+  </div>
+   <div style="height:40px;"></div>

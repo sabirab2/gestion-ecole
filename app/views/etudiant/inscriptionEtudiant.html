@@ -1,0 +1,107 @@
+
+<div class="container">
+	<div class="row">
+		<div alert-ecole>{{message}}</div>	
+
+
+		<menu-etudiant></menu-etudiant>
+		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+			<form name="formEtudiant" enctype="multipart/form-data" ng-submit="ajouterEtudiant()" role="form">
+				<div class="panel panel-default">
+				  <div class="panel-heading">Nouvel etudiant</div>
+				  <div class="panel-body">
+	 <span us-spinner="{lines: 11, 
+                        length: 9, 
+                        width: 14, 
+                        radius: 7, 
+                        corners: 0.3, 
+                        rotate: 41,
+                        direction: 1, 
+                        color: '#BF3E11', 
+                        speed: 0.8, 
+                        trail: 38, 
+                        shadow: false, 
+                        hwaccel: false, 
+                        className: 'spinner', 
+                        zIndex: 1, 
+                        top: '50%', 
+                        left: '50%'}">
+   				 </span>
+				<tabset justified="true">
+					<!-- ------------------------ Informations Personnelles ------------------ -->
+				    <tab heading="information personnelle">
+					<br>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+						<div class="form-group" ng-class="{'has-error' : formEtudiant.nom.$invalid && formEtudiant.nom.$touched }">
+							<label class="control-label" for="nom">Nom 
+							<span  ng-messages="formEtudiant.nom.$error" ng-messages-include="views/errors.html"></span>
+							</label>
+							<input type="text" name="nom" ng-model="etudiant.nom" class="form-control"  id="nom" placeholder="Nom"  ng-required="true" >
+						</div>
+
+						<div class="form-group" ng-class="{'has-error' : formEtudiant.prenom.$invalid && formEtudiant.prenom.$touched }">
+							<label class="control-label" for="prenom">Prénom
+							<span  ng-messages="formEtudiant.prenom.$error" ng-messages-include="views/errors.html"></span>
+							</label>
+							<input type="text" name="prenom" ng-model="etudiant.prenom" class="form-control"  id="prenom" placeholder="Prénom"  ng-required="true" >
+						</div>
+
+						<div class="form-group" ng-class="{'has-error' : formEtudiant.tel.$invalid && formEtudiant.tel.$touched }">
+							<label class="control-label" for="tel">Tel 
+							<span  ng-messages="formEtudiant.tel.$error" ng-messages-include="views/errors.html"></span>
+							</label>
+							<input type="text" name="tel" ng-model="etudiant.tel" class="form-control"  id="tel" placeholder="0xxxxxxxxx" pattern="^0[0-9]{9}" ng-required="true" >
+						</div>
+					</div>
+
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<div class="form-group" ng-class="{'has-error' : formEtudiant.email.$invalid && formEtudiant.email.$touched }">
+							<label class="control-label" for="email">Email 
+							<span  ng-messages="formEtudiant.email.$error" ng-messages-include="views/errors.html"></span>
+							</label>
+							<input type="email" name="email" ng-model="etudiant.email" class="form-control"  id="email" placeholder="abcd@exemple.com" ng-required="true" >
+						</div>
+
+						<div class="form-group" ng-class="{'has-error' : formEtudiant.date.$invalid && formEtudiant.date.$touched }">
+							<label for="date" class="control-label">Date de naissance
+							<span  ng-messages="formEtudiant.date.$error" ng-messages-include="views/errors.html"></span>
+							</label>
+							<div class="input-group" ng-controller="DatepickerDemoCtrl">
+							<input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="etudiant.dateNaissanc" is-open="opened" min-date="minDate" max-date="{{maxDate}}" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="JJ.MM.AAAA" name="date" id="date"/>
+			              	<span class="input-group-btn">
+			                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			             	 </span>
+							</div>
+						</div>
+
+					<div class="form-group" >
+						<label class="control-label" for="photo">Photo 
+						</label>
+						<div class="input-group" >
+						<input type="hidden" ng-model="etudiant.photo" value="{{etudiant.photo}}" />
+							<span class="btn btn-default btn-file ">
+						      <input type="file" name="file" onChange="angular.element(this).scope().uploadFile(this.files)"> <img ng-src="./photos/{{etudiant.photo}}" width="215" style='color:red;font-weight:bold;' alt="{{errors}}" class="img-responsive" > <span ng-if="etudiant.photo">Changer</span> <span ng-if="!etudiant.photo">Parcourir</span>
+					    </span>
+					    </div>
+					</div> 	
+					</div>
+					
+				    </tab>
+				    <!-- ------------------------ informations tuteur ------------------ -->
+				    <tab heading="informations tuteur">
+
+				    </tab>
+				    <!-- ------------------------ Informations compte ------------------ -->
+				    <tab heading="compte">
+				    	
+				    </tab>
+			  	</tabset>
+			  	<button type="submit" ng-disabled="formEtudiant.$invalid" class="btn btn-primary">Submit</button>
+
+			  	</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

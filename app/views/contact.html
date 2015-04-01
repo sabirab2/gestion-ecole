@@ -1,0 +1,26 @@
+<div class="jumbotron">
+	<div class="container">
+		<h1>{{message}}</h1>
+		<p>Contents ...</p>
+		<p>
+			<a class="btn btn-primary btn-lg">Learn more</a>
+		</p>
+	</div>
+</div>
+<div class="container">
+	
+<form action="#/contact" name="contactForme" method="POST" role="form" >
+	<legend>Contactez-nous</legend>
+
+	<div class="form-group" ng-class="{'has-error' : contactForme.email.$invalid && contactForme.email.$touched }">
+		<label class="control-label" for="email">Email
+		<!-- 	<span  ng-messages="contactForme.email.$error" ng-messages-include="views/errors.html"></span> -->
+		</label>
+		<input type="email" name="email" ng-model="email" class="form-control"  id="email" placeholder="tapez votre email" required >
+		
+	</div>
+	
+
+	<button type="submit" ng-disabled="contactForme.$invalid" class="btn btn-primary">Submit</button>
+</form>
+</div>
